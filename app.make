@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -std=c11
 LIBS = -lm
 
 main: main.o bcdopps.o
-	$(CC) $(CFLAGS) -o main main.o bcdopps.o
+	$(CC) $(CFLAGS) -o main main.o bcdopps.o $(LIBS)
 
 main.o: main.c bcdopps.h
 	$(CC) $(CFLAGS) -c main.c
