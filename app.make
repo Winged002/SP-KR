@@ -11,4 +11,4 @@ bcdopps.o: bcdopps.c bcdopps.h
 	$(CC) $(CFLAGS) -c bcdopps.c
 
 clean:
-rm -f *.o main
+	rm -f *.o main
