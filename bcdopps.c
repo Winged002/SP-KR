@@ -1,6 +1,7 @@
 #include "bcdopps.h"
 #include <stdio.h>
 #include <math.h>
+#include <cstdio>
 
 void add(int a, int b) {
     printf("Sum equals: %d\n", a + b);
