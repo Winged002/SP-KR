@@ -1,11 +1,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 
-main: Main.o bcdopps.o
-	$(CC) $(CFLAGS) -o main Main.o bcdopps.o
+main: main.o bcdopps.o
+	$(CC) $(CFLAGS) -o main main.o bcdopps.o
 
-Main.o: Main.c bcdopps.h
-	$(CC) $(CFLAGS) -c Main.c
+main.o: main.c bcdopps.h
+	$(CC) $(CFLAGS) -c main.c
 
 bcdopps.o: bcdopps.c bcdopps.h
 	$(CC) $(CFLAGS) -c bcdopps.c
