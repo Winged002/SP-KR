@@ -1,5 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
+LIBS = -lm
 
 main: main.o bcdopps.o
 	$(CC) $(CFLAGS) -o main main.o bcdopps.o
