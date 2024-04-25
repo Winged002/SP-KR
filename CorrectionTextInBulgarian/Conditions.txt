@@ -1,0 +1,38 @@
+1. If there is space between word and ... the space should be removed
+2. If there is two . the one should be removed and if there is more than three . the corrected version should be just three .
+3. If there is <word>,<space><new line>-<space><word> the corrected version should be <word>,-<space><word> or if there is <word>,<space><new line>-<word> the corrected version should be <word>,-<space><word> or if there is <word>,<space><new line><space>-<space><word> the corrected version should be <word>,-<space><word> or if there is <word>,<space><new line><space>-<word> the corrected version should be <word>,-<space><word> (Hint: The point is correctness of new line when there is a type of word with - and this is the possible examples)
+4. If there is two signs of , : . ! ? and between them there is space or more spaces, the spaces should be removed
+5. If there is sign of , : . ! ? and before it there is space the space should be removed
+6. If there is sign of , : . ! ? and before or after that there is , and with it there is spaces the , and spaces should be removed
+7. If there is , and after that word and there isn't space between them the space should be added 
+8. If there is some of the following words at the start of sentence in Bulgarian: Например, Всъщност, Според мен, Наистина, Следователно, Действително, Реално, Практически, Така, Може би, Значи, Вероятно, Очевидно, Навярно, По всяка вероятност, В действителност, В края на краищата
+and after the words there is , the , should be removed and if there is no space after the word the space should be added
+9. If there is some of the following words at the start of the sentence  in Bulgarian: Казват, Напротив, Разбира се, Изглежда, Струва ми се, Види се, Общо взето, Тъй да се каже, Между нас казано, Както казват, Първо, Второ, Трето, Естествено
+and after the word there isn't , the , should be added
+10. There should be , before (with space) and after the following words in Bulgarian:
+казват, напротив, разбира се, изглежда, струва ми се, види се, общо взето, тъй да се каже, нежду нас казано, както казват
+11. If there is some of the following words in Bulgarian: а, но, че, и, не, или, дори, само, именно, едва, особено, поне, тъкмо, под, много, малко, даже, чак, щом, тъй, след, освен, чак, единствено, именно, тъкмо after them there should be just space and if there is , the , should be removed and if there is no space the space should be added
+12. If the first word is one of the following in Bulgarian: за, в, с, заради, от, по, поради, вследствие на, благодарение на and the second word is one of the following: който, която, което, които, чийто, чиято, чието, чиито between them there shoud be , and after space. In the incorrect file if can be without , or without space or space before , but the corrected version should be ,<space>
+13. If the first word is one of the following in Bulgarian: дори, само, именно, едва, особено, поне, тъкмо, под, много, малко, даже, чак, щом, тъй, след, освен, чак, единствено, именно, тъкмо, не and the second word is защото and if between them there are , or spaces the , and more spaces should be removed and between should be just one space
+14. If at the start of one sentence there is in Bulgarian: За съжаление and after that some word between them there should be , 
+15. If in one sentence there is following: за съжаление and before and after that there is some words between word and other there should be , 
+16. If the first word is one of the following: само, дори, едва, чак, даже, единствено, именно, тъкмо, много, малко, не, и, макар, въпреки, така, само, при положение, в случай, по причина, при условие, при все, сякаш, освен, независимо, Въпреки, Така, Само, При положение че, Макар, В случай че, При условие, При все, Освен, Независимо and the second word is one of the following: за да, без да, като да, освен да, въпреки че, освен че, само че, тъй че, така че, макар
+че, сякаш че, затова че, задето, освен дето, освен като, след като, макар да, ако и да, когато, ако, дето, и, или, че, да and if between them there is , and more spaces the corrected version should have just one space between with no ,
+17. If the first word is че and the words after that are за да between them the , should be removed and there should be just one space
+18. If there is not , and space they should be added before the following words: -first word one of the following: щом, тъй, след, освен then space and second word като
+19. If there is some word and then space and then word one of the following: както следва, вместо да, за разлика от after the first word and before space should be added , 
+20. If the first word is one of the following: както следва, вместо да, за разлика от and second word is естествено and between them there is , and more spaces, they should be removed and the words should be separated with just one space
+21. If there is one word starting with в or ф and before them there is the word в that word should be corrected with във
+22. If there is one word starting with с or з and before them there is the word с that word should be corrected with със
+23. If the first word is some word and second word is one of the following: а, ала, но, макар и, ако и, та, ама, пък, що, дето, обаче, ами, защото, отколкото, без да, докато, като between them should be , and then space if the space is before , it should be moved or if there is no , it should be added
+
+Премахване на интервал между дума и многоточие ... Премахвана не излишна точка.. Премахвана не излишна точка....
+Корекция на неправилно пренесен ред при пряка, 
+- реч
+Премахване на интервали между препинателни знаци. ! Премахване на интервал пред препинателен знак ! Премахване на ',' от препинателен знак!,
+Добавяне на интервал между ',' и печатим ,символ. Например, премахване на ',' след начална дума в изречението
+Казват задължителна ',' след начална дума в изречението. Задължителна ',' пред и след казват дума. Премахване на ',' след съюз или,
+Преместване на ',' дори, Премахване на ',' след уточняващо наречие за ,който. Добавяне на ',' не, защото. За съжаление добавяне на ','
+Добавяне на ',' когато за съжаление нещо. Премахване на ',' само, без да. Премахване на ',' въпреки, че. Премахване на ',' че, за да.
+Добавяне на ',' щом като. Добавяне на ',' когато вместо да. Премахване на ',' пред както следва, естествено.
+Кога се слага в вода. Кога се слага с слънце. Добавяне на ',' когато макар и.

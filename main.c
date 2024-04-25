@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include "bcdopps.h"
 
+// Global label widget for displaying the result
+GtkWidget *result_label;
+
 static void button_clicked(GtkWidget *widget, gpointer data) {
     // Handle button click event
     char *label = gtk_button_get_label(GTK_BUTTON(widget));
@@ -22,26 +25,37 @@ static void button_clicked(GtkWidget *widget, gpointer data) {
         int a, b;
         char sign;
         sscanf(expression, "%d %c %d", &a, &sign, &b);
+        int result = 0; // Variable to store the result
         switch (sign) {
             case '+':
-                add(a, b);
+                result = a + b;
                 break;
             case '-':
-                sub(a, b);
+                result = a - b;
                 break;
             case '*':
-                mul(a, b);
+                result = a * b;
                 break;
             case '/':
-                divide(a, b);
+                if (b != 0) {
+                    result = a / b;
+                } else {
+                    // Handle division by zero error
+                    gtk_label_set_text(GTK_LABEL(result_label), "Error: Division by zero");
+                    return;
+                }
                 break;
             case '^':
-                power(a, b);
+                result = power(a, b); // Call the power function from bcdopps.h
                 break;
             default:
-                printf("Please enter correct operation sign \n");
-                break;
+                gtk_label_set_text(GTK_LABEL(result_label), "Error: Invalid operation sign");
+                return;
         }
+        // Update the result label with the calculated result
+        char result_str[50];
+        snprintf(result_str, sizeof(result_str), "Result: %d", result);
+        gtk_label_set_text(GTK_LABEL(result_label), result_str);
     }
 }
 
@@ -59,14 +73,18 @@ int main(int argc, char *argv[]) {
     grid = gtk_grid_new();
     gtk_container_add(GTK_CONTAINER(window), grid);
 
+    // Label widget to display the result
+    result_label = gtk_label_new("Result:");
+    gtk_grid_attach(GTK_GRID(grid), result_label, 0, 0, 4, 1);
+
     entry = gtk_entry_new();
-    gtk_grid_attach(GTK_GRID(grid), entry, 0, 0, 4, 1);
+    gtk_grid_attach(GTK_GRID(grid), entry, 0, 1, 4, 1);
 
     char *button_labels[16] = {"7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", "^", "=", "+"};
     for (int i = 0; i < 16; i++) {
         button = gtk_button_new_with_label(button_labels[i]);
         g_signal_connect(button, "clicked", G_CALLBACK(button_clicked), entry);
-        gtk_grid_attach(GTK_GRID(grid), button, i % 4, i / 4 + 1, 1, 1);
+        gtk_grid_attach(GTK_GRID(grid), button, i % 4, i / 4 + 2, 1, 1);
     }
 
     gtk_widget_show_all(window);
