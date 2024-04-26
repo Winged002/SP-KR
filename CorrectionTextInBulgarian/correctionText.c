@@ -960,18 +960,25 @@ int main(int argc, char *argv[]) {
     wchar_t *corrected_text = correct_text(input_wide);
     free(input_wide);
 
-    // Open the output file for writing
+    // Convert the corrected text to a multibyte string
+    size_t corrected_text_mb_len = wcstombs(NULL, corrected_text, 0) + 1;
+    char *corrected_text_mb = malloc(corrected_text_mb_len * sizeof(char));
+    wcstombs(corrected_text_mb, corrected_text, corrected_text_mb_len);
+    free(corrected_text);
+
+    // Write the corrected text to the output file
     FILE *output_file = fopen(argv[2], "w");
     if (output_file == NULL) {
         perror("Error opening output file");
-        free(corrected_text);
+        free(corrected_text_mb);
         return 1;
     }
 
-    // Write the corrected text to the output file
-    fwprintf(output_file, L"%ls", corrected_text);
+    fwrite(corrected_text_mb, 1, strlen(corrected_text_mb), output_file);
     fclose(output_file);
-    free(corrected_text);
+    free(corrected_text_mb);
 
     return 0;
 }
+
+
